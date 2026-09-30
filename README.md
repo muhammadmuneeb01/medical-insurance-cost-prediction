@@ -1,12 +1,47 @@
-# medical-insurance-cost-prediction
-End-to-end Machine Learning pipeline and Gradio web app for insurance cost prediction.
+# Medical Insurance Cost Predictor
 
-📌 Project OverviewMedical insurance costs depend heavily on personal health factors and lifestyle choices. The goal of this project is to build an interpretable Multiple Linear Regression pipeline that estimates annual charges based on age, BMI, smoking status, dependents, and region.📊 Dataset DetailsThe model is trained on the standard Medical Cost Personal Datasets (1,338 records):age: Age of the beneficiarysex: Gender (female, male)bmi: Body Mass Index ($kg/m^2$)children: Number of covered dependentssmoker: Smoking status (yes, no)region: Residential region in the US (northeast, southeast, southwest, northwest)charges (Target): Total annual medical bills in USD ($)🛠️ Machine Learning WorkflowData Cleaning: Checked for missing values and handled data formatting.Preprocessing: Applied One-Hot Encoding (pd.get_dummies) to convert categorical text features into numerical values.Train/Test Split: Separated data into 80% training set and 20% test set (random_state=42).Model Training: Fitted a Multiple Linear Regression model using scikit-learn.Deployment: Integrated the model into an interactive web UI using Gradio.📈 Results & PerformanceMean Absolute Error (MAE): ~$4,181.19Root Mean Squared Error (RMSE): ~$5,796.28$R^2$ Score: 0.7836 (Explains ~78.4% of the variance)Key Takeaway: Smoking status is the strongest predictor of high medical costs, especially when paired with a high BMI ($\ge 30$).🚀 How to Run LocallyBash# 1. Clone this repository
-git clone https://github.com/your-username/medical-insurance-cost-prediction.git
+A simple Machine Learning project that predicts annual medical insurance charges based on personal health and demographic details. 
 
-# 2. Install required packages
-pip install pandas numpy scikit-learn gradio
+This project uses **Multiple Linear Regression** to make predictions and includes an interactive web app built with **Gradio**.
 
-# 3. Run the notebook or application
-python app.py
-⚠️️ Model LimitationsAssumes linear relationships; extreme non-linear risk factors may require tree-based algorithms like Random Forest.Regional indicators are limited to US territories.
+---
+
+## 📌 Project Overview
+Medical expenses vary a lot from person to person. The goal of this project is to build a model that estimates how much a person will pay for health insurance based on factors like age, BMI, and smoking habits.
+
+---
+
+## 📊 Dataset Info
+The dataset has **1,338 rows** with the following details:
+* **`age`**: Age of the person
+* **`sex`**: Gender (`female` or `male`)
+* **`bmi`**: Body Mass Index (measures body fat based on height and weight)
+* **`children`**: Number of dependents/children
+* **`smoker`**: Whether the person smokes (`yes` or `no`)
+* **`region`**: Location in the US (`northeast`, `southeast`, `southwest`, `northwest`)
+* **`charges`**: Annual medical cost in USD ($) — *This is what we predict!*
+
+---
+
+## 🛠️ How It Was Built
+1. **Data Cleaning**: Checked for missing values (there were none).
+2. **Encoding**: Converted text columns into numbers using One-Hot Encoding (`pd.get_dummies`).
+3. **Train-Test Split**: Split data into 80% for training and 20% for testing.
+4. **Model Training**: Trained a Linear Regression model using `scikit-learn`.
+5. **App Creation**: Built a simple web interface using `Gradio` so users can test predictions live.
+
+---
+
+## 📈 Model Performance
+* **Mean Absolute Error (MAE)**: ~$4,181
+* **Root Mean Squared Error (RMSE)**: ~$5,796
+* **R² Score**: `0.7836` (The model accurately explains about **78%** of the cost differences)
+
+**Key Insight:** Smoking is the biggest factor that increases insurance costs, especially when combined with a high BMI!
+
+---
+
+## 🚀 How to Run the Project
+1. Clone this repository:
+   ```bash
+   git clone [https://github.com/your-username/medical-insurance-cost-prediction.git](https://github.com/your-username/medical-insurance-cost-prediction.git)
